@@ -11,7 +11,7 @@ from urllib3.util.retry import Retry
 # ======================
 API_BASE = "https://gate.5eplay.com/crane/http/api/data"
 BEARER_TOKEN = ""
-UUID = ""  # 用户唯一标识
+UUID = "3cea4f9e-a7ca-11ea-8109-ec0d9a7185b0"  # 用户唯一标识
 
 # 禁用SSL警告
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -35,7 +35,8 @@ session.mount("https://", adapter)
 def make_api_request(endpoint, params=None):
     """带重试机制的API请求"""
     headers = {
-        "Authorization": f"Bearer {BEARER_TOKEN}",
+        # "Authorization": f"Bearer {BEARER_TOKEN}",
+        "Authorization": f"", 
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Referer": "https://view-arena.5eplay.com/"
     }
@@ -356,8 +357,8 @@ def generate_report():
             "match_type": -1,
             "page": page,
             "date": 0,
-            "start_time": 1729699200,
-            "end_time": 1737734399,
+            "start_time": 1000000000,
+            "end_time"  : 9999999999,
             "uuid": UUID,
             "limit": 30,
             "cs_type": 0
